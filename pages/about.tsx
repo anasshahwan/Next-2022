@@ -1,22 +1,18 @@
-import { Alert } from "react-bootstrap";
+import { Alert, Navbar } from "react-bootstrap";
+import NavBar from "../components/Nav";
+import styles from "../styles/Home.module.css";
 
 const About = () => {
   return (
     <div>
-      <h1>About Page</h1>
-      <Alert variant="success">
-        <Alert.Heading>Hey, nice to see you</Alert.Heading>
-        <p>
-          Aww yeah, you successfully read this important alert message. This
-          example text is going to run a bit longer so that you can see how
-          spacing within an alert works with this kind of content.
-        </p>
+      <NavBar />
+      <main className={styles.main}>
+        <h1 className={styles.title}>About Page</h1>
         <hr />
-        <p className="mb-0">
-          Whenever you need to, be sure to use margin utilities to keep things
-          nice and tidy.
-        </p>
-      </Alert>
+        <Alert variant="success">
+          <Alert.Heading>Hey, nice to see you</Alert.Heading>
+        </Alert>
+      </main>
     </div>
   );
 };

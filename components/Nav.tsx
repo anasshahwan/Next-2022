@@ -7,8 +7,13 @@ import {
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
+import Link from "next/link";
 import navStyle from "../styles/Nav.module.css";
+import { useRouter } from "next/router";
+
 const NavBar = () => {
+  const router = useRouter();
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -20,8 +25,24 @@ const NavBar = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">About</Nav.Link>
+            <Link href="/">
+              <a
+                className={
+                  router.pathname == "/" ? navStyle.active : navStyle.link
+                }
+              >
+                Home
+              </a>
+            </Link>
+            <Link href="/about">
+              <a
+                className={
+                  router.pathname == "/about" ? navStyle.active : navStyle.link
+                }
+              >
+                About
+              </a>
+            </Link>
           </Nav>
           <Form className="d-flex">
             <FormControl
