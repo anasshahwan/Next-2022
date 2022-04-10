@@ -4,8 +4,9 @@ FROM node:16-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json package-lock.json ./
+RUN npm ci
 RUN npm install --frozen-lockfile
-RUN npm i -g next
+#RUN npm i -g next
 # If using npm with a `package-lock.json` comment out above and use below instead
 # COPY package.json package-lock.json ./ 
 # RUN npm ci
@@ -21,7 +22,7 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN npm build
+RUN npm run build
 
 # If using npm comment out above and use below instead
 # RUN npm run build
